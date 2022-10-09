@@ -1,37 +1,79 @@
 package com.rfagundes.digitalbanc.domain;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class Contas {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+
+
+
+@Entity
+public class Contas implements Serializable{
 
 	
+	
+	
+	
+	private static final long serialVersionUID = 1L;
+	
+	
+	
+	
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Integer id ;
-	 private String tipo = "";
-	 private String numero ="";
+	 private String tipo ;
+	 private String numero;
 	 private double  saldo ;
 	 
 	 
-	 private Users user ;
+	 
+	 
+	 @JsonIgnore
+	 @ManyToOne
+	 @JoinColumn(name="user_id")
+	 private Users users ;
 
 	 
 	 
+	 
+	 @OneToMany(mappedBy = "contas")
+	 private List <Movimentacao> movimentacao  = new ArrayList<>();
+	 
+	 
+	 
+
+	
+
+
 
 	public Contas() {
-		super();
-		// TODO Auto-generated constructor stub
+		super();		
 	}
 
 
 
 
-	public Contas(Integer id, String tipo, String numero, double saldo, Users user) {
+	public Contas(Integer id, String tipo, String numero, double saldo, Users users) {
 		super();
 		this.id = id;
 		this.tipo = tipo;
 		this.numero = numero;
 		this.saldo = saldo;
-		this.user = user;
-	}
+		this.users = users;
+		}
 
 
 
@@ -91,17 +133,40 @@ public class Contas {
 
 
 
-
-	public Users getUser() {
-		return user;
+	
+	public Users getUsers() {
+		return users;
 	}
 
 
 
 
-	public void setUser(Users user) {
-		this.user = user;
+	public void setUsers(Users users) {
+		this.users = users;
 	}
+	
+	
+
+	
+
+
+	
+	public List<Movimentacao> getMovimentacao() {
+		return movimentacao;
+	}
+
+
+
+
+	public void setMovimentacao(List<Movimentacao> movimentacao) {
+		this.movimentacao = movimentacao;
+	}
+  
+	
+	
+	
+
+	
 
 
 
