@@ -35,7 +35,7 @@ public class Movimentacao implements Serializable {
 	 
 	 @JsonIgnore
 	 @ManyToOne
-	 @JoinColumn(name="conta_id")
+	 @JoinColumn(name="id_conta")
 	 private Contas contas ;
 	 
 	 

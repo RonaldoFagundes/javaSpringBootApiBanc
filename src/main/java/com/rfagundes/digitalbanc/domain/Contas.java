@@ -43,7 +43,7 @@ public class Contas implements Serializable{
 	 
 	 @JsonIgnore
 	 @ManyToOne
-	 @JoinColumn(name="user_id")
+	 @JoinColumn(name="id_user")
 	 private Users users ;
 
 	 

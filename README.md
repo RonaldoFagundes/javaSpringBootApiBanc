@@ -16,7 +16,7 @@ api movimentação bancária
    &nbsp;
  - Modelo conceitual
  - XAMPP
- - SpringToo
+ - SpringTool
  - Postman Agent
  - Heroku
  
