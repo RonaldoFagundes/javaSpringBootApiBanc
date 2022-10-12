@@ -28,6 +28,26 @@ public class InvestimentosService {
 	}
 	
 	
+	public Investimentos update(Integer id, Investimentos obj) {		
+		Investimentos newObj = findById(id);
+		updateData(newObj,obj);
+		return repository.save(newObj);
+	}
+
+
+
+	private void updateData(Investimentos newObj, Investimentos obj) {
+	   newObj.setNome(obj.getNome());
+	   newObj.setTaxa(obj.getTaxa());
+	}
+	
+	
+	
+	
+	public Investimentos create(Investimentos obj) {
+		obj.setId(null);
+		return repository.save(obj);
+	}
 	
 	
 }

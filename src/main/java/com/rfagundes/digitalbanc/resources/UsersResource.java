@@ -50,9 +50,9 @@ public class UsersResource {
 	public ResponseEntity<Users> create(@RequestBody Users obj) {
 	 obj = service.create(obj);
 	 URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-	 return ResponseEntity.created(uri).build();
-		
+	 return ResponseEntity.created(uri).build();		
 	}
+	
 	
 	@PutMapping(value="/{id}")
 	public ResponseEntity<UsersDTO> update (@PathVariable Integer id, @RequestBody UsersDTO objDto ){
