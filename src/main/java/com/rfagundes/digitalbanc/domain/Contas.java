@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -33,9 +36,10 @@ public class Contas implements Serializable{
 	
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Integer id ;
-	 private String tipo ;
-	 private String numero;
+	 private Integer id ;	 
+	 
+	 private String tipo ;	 
+	 private String numero;	 
 	 private double  saldo ;
 	 
 	 

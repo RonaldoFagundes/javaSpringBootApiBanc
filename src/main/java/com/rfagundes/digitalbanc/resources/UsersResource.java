@@ -4,8 +4,11 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +22,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.rfagundes.digitalbanc.domain.Users;
 import com.rfagundes.digitalbanc.dtos.UsersDTO;
 import com.rfagundes.digitalbanc.service.UsersService;
-
 
 
 
@@ -47,7 +49,7 @@ public class UsersResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Users> create(@RequestBody Users obj) {
+	public ResponseEntity<Users> create(@Valid @RequestBody Users obj) {
 	 obj = service.create(obj);
 	 URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 	 return ResponseEntity.created(uri).build();		
@@ -55,7 +57,7 @@ public class UsersResource {
 	
 	
 	@PutMapping(value="/{id}")
-	public ResponseEntity<UsersDTO> update (@PathVariable Integer id, @RequestBody UsersDTO objDto ){
+	public ResponseEntity<UsersDTO> update (@Valid @PathVariable Integer id, @RequestBody UsersDTO objDto ){
 		Users newObj = service.update(id, objDto);
 		return ResponseEntity.ok().body(new UsersDTO(newObj));
 	}

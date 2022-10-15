@@ -11,6 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 
 
@@ -28,8 +31,16 @@ public class Users implements Serializable{
 	 @Id	 
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Integer id ;
+	 
+	 @NotEmpty(message="Campo Nome é requerido!")
+	 @Length(min=5 , max=60 ,message="Campo Nome deve ter entre 5 a 60 caracteres!")
 	 private String name ;
+	 
+	 @NotEmpty(message="Campo Login é requerido!")
+	 @Length(min=5 , max=10 ,message="Campo Login deve ter entre 5 a 10 caracteres!")
 	 private String login ;
+	 
+	 @NotEmpty(message="Campo Senha é requerido!")	 
 	 private String password;
 	 
 	

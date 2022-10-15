@@ -2,6 +2,10 @@ package com.rfagundes.digitalbanc.dtos;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
 import com.rfagundes.digitalbanc.domain.Users;
 
 public class UsersDTO implements Serializable {
@@ -9,9 +13,20 @@ public class UsersDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
-	private String name;
-	private String login;
-	private String password;
+	
+	 @NotEmpty(message="Campo Nome é requerido!")
+	 @Length(min=5 , max=60 ,message="Campo Nome deve ter entre 5 a 60 caracteres!")
+	 private String name ;
+	 
+	 @NotEmpty(message="Campo Login é requerido!")
+	 @Length(min=5 , max=10 ,message="Campo Login deve ter entre 5 a 10 caracteres!")
+	 private String login ;
+	 
+	 @NotEmpty(message="Campo Senha é requerido!")	 
+	 private String password;	
+	
+	
+	
 
 	public UsersDTO() {
 		super();
