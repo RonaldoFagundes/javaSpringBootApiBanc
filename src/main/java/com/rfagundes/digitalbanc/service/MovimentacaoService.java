@@ -66,4 +66,15 @@ return obj.orElseThrow(() -> new ObjectNotFoundException("Transação não encon
 
 
 	
+	
+	public void delete(Integer id) {
+		Movimentacao obj = findById(id);
+		repository.delete(obj);		
+	}
+	
+	
+	
+
+
+	
 }

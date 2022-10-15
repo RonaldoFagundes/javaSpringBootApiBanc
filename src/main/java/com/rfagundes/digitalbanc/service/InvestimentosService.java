@@ -48,6 +48,12 @@ public class InvestimentosService {
 		obj.setId(null);
 		return repository.save(obj);
 	}
+
+
+	public void delete(Integer id) {
+	    Investimentos obj = findById(id);
+	    repository.delete(obj);		
+	}
 	
 	
 }

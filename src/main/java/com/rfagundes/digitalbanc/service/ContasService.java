@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.rfagundes.digitalbanc.domain.Contas;
 import com.rfagundes.digitalbanc.domain.Users;
 import com.rfagundes.digitalbanc.repositories.ContaRepository;
+import com.rfagundes.digitalbanc.service.exceptions.DataIntegrityViolationException;
 import com.rfagundes.digitalbanc.service.exceptions.ObjectNotFoundException;
 
 @Service
@@ -60,6 +61,31 @@ return obj.orElseThrow(() -> new ObjectNotFoundException("Conta não encontrada!
 		obj.setUsers(use);
 		return repository.save(obj);
 	}
+
+
+	
+	
+   /*
+	public void delete(Integer id) {
+		Contas obj = findById(id);
+		repository.delete(obj);		
+	}	
+	*/
+	
+	
+	
+	 public void delete(Integer id) {		
+		findById(id);
+		
+		try {
+			repository.deleteById(id);	
+		} catch (org.springframework.dao.DataIntegrityViolationException e) {
+			throw new DataIntegrityViolationException(" Dado não pode ser deletado possui movimentação !");
+		}
+		
+	}
+	
+
 	
 	
 	
