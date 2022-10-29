@@ -9,4 +9,5 @@ import com.rfagundes.digitalbanc.domain.Investimentos;
 @Repository
 public interface InvestimentosRepository extends JpaRepository<Investimentos, Integer> {
 	
+
 }

@@ -11,7 +11,8 @@ public class MovimentacaoDTO implements Serializable {
 	
 	
 	 private Integer id ;
-	 private String tipo ;	 
+	 private String tipo ;	
+	 private String data; 
 	 private String descricao;
 	 private double  valor ;
 	 
@@ -28,6 +29,7 @@ public class MovimentacaoDTO implements Serializable {
 	public MovimentacaoDTO(Movimentacao obj) {
 		super();
 		this.id = obj.getId();
+		this.data = obj.getData();
 		this.tipo = obj.getTipo();
 		this.descricao = obj.getDescricao();
 		this.valor = obj.getValor();
@@ -48,8 +50,15 @@ public class MovimentacaoDTO implements Serializable {
 	}
 
 
+    public String getData() {
+	    return data;
+    }
 
-
+    public void setData(String data) {
+         this.data = data;	 
+    }
+    
+    
 	public String getTipo() {
 		return tipo;
 	}

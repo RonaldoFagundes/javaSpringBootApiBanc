@@ -24,7 +24,7 @@ import com.rfagundes.digitalbanc.dtos.UsersDTO;
 import com.rfagundes.digitalbanc.service.UsersService;
 
 
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value="/users")
 public class UsersResource {

@@ -27,6 +27,7 @@ public class Movimentacao implements Serializable {
 	 @Id	
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Integer id ;
+	 private String data ;
 	 private String tipo ;	 
 	 private String descricao;
 	 private double  valor ;
@@ -50,9 +51,10 @@ public class Movimentacao implements Serializable {
 	 
 	 
 
-	public Movimentacao(Integer id, String tipo,  String descricao, double valor, Contas contas) {
+	public Movimentacao(Integer id, String data,  String tipo,  String descricao, double valor, Contas contas) {
 		super();
 		this.id = id;
+		this.data = data;
 		this.tipo = tipo;
 	    this.descricao = descricao;
 		this.valor = valor;
@@ -61,6 +63,8 @@ public class Movimentacao implements Serializable {
 
 
 
+	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -71,8 +75,22 @@ public class Movimentacao implements Serializable {
 		this.id = id;
 	}
 
+	
+	
 
+	public String getData() {
+		return data;
+	}
 
+	
+	public void setData(String data) {
+		this.data = data;
+	}
+	
+	
+	
+	
+	
 	public String getTipo() {
 		return tipo;
 	}

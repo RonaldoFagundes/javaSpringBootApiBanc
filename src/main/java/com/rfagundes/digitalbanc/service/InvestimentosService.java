@@ -1,5 +1,6 @@
 package com.rfagundes.digitalbanc.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class InvestimentosService {
 	private InvestimentosRepository repository ;
 	
 	
+	
 	public Investimentos findById (Integer id) {
 		
 		Optional<Investimentos> obj = repository.findById(id);
@@ -26,6 +28,13 @@ public class InvestimentosService {
 				+id+" , Tipo "+Investimentos.class.getName()));
 				
 	}
+	
+	
+	
+	public List <Investimentos> findAll(){
+		return repository.findAll();  
+	}
+	
 	
 	
 	public Investimentos update(Integer id, Investimentos obj) {		

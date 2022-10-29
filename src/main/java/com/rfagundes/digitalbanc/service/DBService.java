@@ -43,8 +43,8 @@ public class DBService {
 		Contas conta_one = new Contas(null, "Investimento", "1313", 900, user_one) ;
 		Contas conta_two = new Contas(null, "Popança", "8247", 600, user_one) ; 
 		
-		Movimentacao movi_one = new Movimentacao(null, "Salário", "mes 09", 1200, conta_one);
-		Movimentacao movi_two = new Movimentacao(null, "Gerador", "mes 06", 1800, conta_two);
+		Movimentacao movi_one = new Movimentacao(null,"30/10/2022","Salário","mes 09", 1200, conta_one);
+		Movimentacao movi_two = new Movimentacao(null,"05/02/2022", "Gerador", "mes 06", 1800, conta_two);
 		
 		
 		Investimentos invest_one = new Investimentos(null,"Selic", 13.5);
